@@ -5,9 +5,9 @@ Bringing data from an Excel files into SQL Server Management Studio and setting 
 
 -- Step 1: Create a new database to upload your datasets into
 
-USE [master]
-GO
-CREATE DATABASE [Red30Tech]
+--USE [master]
+--GO
+--CREATE DATABASE [Red30Tech]
 
 -- Step 2: Switch to using the new database you just created
 USE [Red30Tech] 
@@ -19,79 +19,79 @@ USE [Red30Tech]
 
   --- SET PK FOR ONLINE RETAIL SALES
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.OnlineRetailSales$
+  ALTER TABLE dbo.OnlineRetailSales
   ALTER COLUMN OrderNum float NOT NULL
   GO
   
   -- Identify OrderNum as the Primary Key of this table
-  ALTER TABLE dbo.OnlineRetailSales$ add primary key (OrderNum) 
+  ALTER TABLE dbo.OnlineRetailSales add primary key (OrderNum) 
   GO
   
   --- SET PK FOR SESSION INFO 
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.SessionInfo$
+  ALTER TABLE dbo.SessionInfo
   ALTER COLUMN [Start Date] datetime NOT NULL
   GO 
 
-  ALTER TABLE dbo.SessionInfo$
+  ALTER TABLE dbo.SessionInfo
   ALTER COLUMN [End Date] datetime NOT NULL
   GO
 
-  ALTER TABLE dbo.SessionInfo$
+  ALTER TABLE dbo.SessionInfo
   ALTER COLUMN [Session Name] nvarchar(255) NOT NULL
   GO 
   
   -- Identify Start Date, End Date, and Session name as the Primary Key of this table
-  ALTER TABLE dbo.SessionInfo$ add primary key ([Start Date],[End Date],[Session Name]) 
+  ALTER TABLE dbo.SessionInfo add primary key ([Start Date],[End Date],[Session Name]) 
   GO
 
   --- SET PK FOR SPEAKER INFO
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.SpeakerInfo$
+  ALTER TABLE dbo.SpeakerInfo
   ALTER COLUMN [Name] nvarchar(255) NOT NULL
   GO 
 
-  ALTER TABLE dbo.SpeakerInfo$
+  ALTER TABLE dbo.SpeakerInfo
   ALTER COLUMN [Session Name] nvarchar(255) NOT NULL
   GO
 
   -- Identify Name and Session Name as the Primary Key of this table
   -- Some session topics are duplicates of each other but they are delivered by different speakers
-  ALTER TABLE dbo.SpeakerInfo$ add primary key ([Name],[Session Name]) 
+  ALTER TABLE dbo.SpeakerInfo add primary key ([Name],[Session Name]) 
   GO
   
   --- SET PK FOR CONFERENCE ATTENDEES
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.ConventionAttendees$
+  ALTER TABLE dbo.ConventionAttendees
   ALTER COLUMN [Email] nvarchar(255)  NOT NULL
   GO
   
   -- Identify Email as the Primary Key of this table
-  ALTER TABLE dbo.ConventionAttendees$ add primary key (Email) 
+  ALTER TABLE dbo.ConventionAttendees add primary key (Email) 
   GO
   
   --- SET PK FOR INVENTORY
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.Inventory$
+  ALTER TABLE dbo.Inventory
   ALTER COLUMN ProdNumber nvarchar(255) NOT NULL
   GO
 
-  ALTER TABLE dbo.Inventory$
+  ALTER TABLE dbo.Inventory
   ALTER COLUMN ProdName nvarchar(255) NOT NULL
   GO
   
   -- Identify ProdNumber and ProdName as the composite Primary Key of this table
-  ALTER TABLE dbo.Inventory$ add primary key ([ProdNumber],[ProdName])
+  ALTER TABLE dbo.Inventory add primary key ([ProdNumber],[ProdName])
   GO
   
   --- SET PK FOR EMPLOYEE DIRECTORY
   -- First, Make cols Non-Nullable
-  ALTER TABLE dbo.EmployeeDirectory$
+  ALTER TABLE dbo.EmployeeDirectory
   ALTER COLUMN EmployeeID nvarchar(255) NOT NULL
   GO
   
   -- Identify EmployeeID as the composite Primary Key of this table
-  ALTER TABLE dbo.EmployeeDirectory$ add primary key ([EmployeeID])
+  ALTER TABLE dbo.EmployeeDirectory add primary key ([EmployeeID])
   GO
   
   -- NOTE: You may need to refresh your connection to see this change under the Keys section. If that does not work, you may need to exit out of SSMS and re-enter. 
